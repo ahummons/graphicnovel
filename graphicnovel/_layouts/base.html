@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<meta name="description" content="This page was built for LIS786" />
+<meta charset="UTF-8">
+<meta name="author" content="April Hummons" />
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Segoe UI";
+  background: #d2eaf2;
+  color: #0b3142;
+}
+header {
+  color: #0b3142;
+  font-size: 50px;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+h1 {
+  color: #0b3142;
+  padding: 10px;
+  font-size: 32px;
+  font-weight: 400;
+}
+h2 {
+  color: #858062;
+  padding: 10px;
+  font-size: 20px;
+}
+p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+  padding-top: 5px;
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+}
+img {
+  border: 2px solid #725e54;
+}
+/* Accordian tabs */
+main {
+  min-width: 320px;
+  max-width: 1000px;
+  padding: 50px;
+  margin: 0 auto;
+  background: #bba3c4;
+  color: #0b3142;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #d2eaf2;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  text-align: center;
+  color: #0b3142;
+  background-color: #d2eaf2;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+label:before {
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*="1"]:before {
+  content: "\f1cb";
+}
+label[for*="2"]:before {
+  content: "\f17d";
+}
+label[for*="3"]:before {
+  content: "\f16b";
+}
+label[for*="4"]:before {
+  content: "\f1a9";
+}
+
+label:hover {
+  color: #bba3c4;
+  cursor: pointer;
+  background-color: #0f5257;
+}
+
+input:checked + label {
+  background-color: #311c38;
+  color: #d2eaf2;
+  border: 1px solid #725e54;
+  border-top: 2px solid #725e54;
+  border-bottom: 1px solid #725e54;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+/* Small reset */
+aside,
+nav {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Clear floats */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+aside {
+  float: left;
+  width: 250px;
+  margin-right: 20px;
+}
+/* Vertical menu */
+#menu li {
+  margin: 0 0 3px 0;
+}
+
+#menu a {
+  display: block;
+  *display: inline-block;
+  *width: 240px;
+  text-decoration: none;
+  background: #311c38;
+  color: #bba3c4;
+  padding: 10px 5px;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#menu a:hover {
+  color: #d2eaf2;
+  background: #0f5257;
+}
+
+#menu .expandable {
+  position: relative;
+}
+
+#menu .expandable:before,
+#menu .expandable:after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  margin-top: 5px;
+  border-top: 6px solid #444;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+#menu .expandable:before {
+  border-top-color: #fff;
+  margin-top: 6px;
+}
+
+#menu .expanded:after {
+  border-top: 0;
+  border-bottom: 6px solid #444;
+}
+
+#menu .expanded:before {
+  border-top: 0;
+  border-bottom: 6px solid #fff;
+}
+
+#menu ul a {
+  background: #f2f2f2;
+  text-transform: none;
+  font-weight: normal;
+}
+
+#menu ul a:hover {
+  background: #fafafa;
+  color: #444;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+  aside {
+    width: 100px;
+  }
+  #menu a {
+    font-size: 12px;
+  }
+  header {
+    font-size: 18px;
+  }
+}
+
+</style>
+<title>Introduction to Graphic Novels</title>
+</head>
+
+<body>
+  <header>
+    Introduction to Graphic Novels
+  </header>
+  <aside>
+    <nav>
+      <ul id="menu">
+        <li><a href="{{site.baseurl}}/home.html">Home</a></li>
+        <li><a href="{{site.baseurl}}/sched.html">Schedule</a></li>
+        <li><a href="{{site.baseurl}}/readings.html">Readings</a>
+        </li>
+        <li><a href="{{site.baseurl}}/assignments.html">Assignments</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+
+{{content}}
+</main>
+<footer class="clearfix">
+    April Hummons copyright 2018
+  </footer>
+</body>
+
+</html>
