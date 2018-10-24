@@ -237,6 +237,15 @@ aside {
   header {
     font-size: 18px;
   }
+  .carousel-caption {
+     background: rgb(115, 115, 115);
+    position: relative;
+    display: none;
+    -webkit-transition: 0.8s ease-in-out left;
+    -moz-transition: 0.8s ease-in-out left;
+    -o-transition: 0.8s ease-in-out left;
+    transition: 0.8s ease-in-out left;
+    }
 }
 </style>
 <title>Introduction to Graphic Novels</title>
@@ -248,11 +257,12 @@ aside {
   <aside>
     <nav>
       <ul id="menu">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="sched.html">Schedule</a></li>
-        <li><a href="readings.html">Readings</a>
+        <li><a href="{{site.baseurl}}/index.html">Home</a></li>
+        <li><a href="{{site.baseurl}}/about.html">About</a></li>
+        <li><a href="{{site.baseurl}}/sched.html">Schedule</a></li>
+        <li><a href="{{site.baseurl}}/readings.html">Readings</a>
         </li>
-        <li><a href="assignments.html">Assignments</a>
+        <li><a href="{{site.baseurl}}/assignments.html">Assignments</a>
         </li>
       </ul>
     </nav>
