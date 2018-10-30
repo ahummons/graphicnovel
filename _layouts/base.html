@@ -1,279 +1,314 @@
 <!doctype html>
 <html lang="en">
-<meta name="description" content="This page was built for LIS786" />
+    <head>
+<title>Intro to Graphic Novels</title>
+<meta name="description" content="Test Page for Introducation to Graphic Novels"/>
 <meta charset="UTF-8">
-<meta name="author" content="April Hummons" />
+<meta name="author" content="April Hummons"/>
+<script src="https://use.fontawesome.com/6d083d2b15.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/solid.css" integrity="sha384-uKQOWcYZKOuKmpYpvT0xCFAs/wE157X5Ua3H5onoRAOCNkJAMX/6QF0iXGGQV9cP" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/fontawesome.css" integrity="sha384-HU5rcgG/yUrsDGWsVACclYdzdCcn5yU8V/3V84zSrPDHwZEdjykadlgI6RHrxGrJ" crossorigin="anonymous">
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-*,
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+  font-family:sans-serif;
 }
 
-html,
-body {
-  height: 100vh;
-  font-family: "Segoe UI";
-  background: #d2eaf2;
-  color: #0b3142;
-}
-header {
-  color: #0b3142;
-  font-size: 50px;
-  padding: 10px;
-  padding-bottom: 20px;
-}
-h1 {
-  color: #0b3142;
-  padding: 10px;
-  font-size: 32px;
-  font-weight: 400;
-}
-h2 {
-  color: #858062;
-  padding: 10px;
-  font-size: 20px;
-}
-p {
-  margin: 0 0 20px;
-  line-height: 1.5;
-  padding-top: 5px;
-}
-footer {
-  text-align: center;
-  padding: 10px;
-  font-size: 12px;
-}
-img {
-  border: 2px solid #725e54;
-}
-/* Accordian tabs */
-main {
-  min-width: 320px;
-  max-width: 1000px;
-  padding: 50px;
-  margin: 0 auto;
-  background: #bba3c4;
-  color: #0b3142;
+#menu_active {
+    position: absolute;
 }
 
-section {
-  display: none;
-  padding: 20px 0 0;
-  border-top: 1px solid #d2eaf2;
+#wrapper {
+    padding-left: 200px;
+    transition: all 1s;
 }
 
-input {
-  display: none;
+#menu_active:checked + #wrapper {
+    padding-left: 44px;
+    transition: all 1s;
 }
 
-label {
-  display: inline-block;
-  margin: 0 0 -1px;
-  padding: 15px 25px;
-  text-align: center;
-  color: #0b3142;
-  background-color: #d2eaf2;
-  border: 1px solid transparent;
-  border-radius: 5px;
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #1f1f1f;
+    transition: all 1s;
 }
 
-label:before {
-  font-weight: normal;
-  margin-right: 10px;
+#menu_active:checked + #wrapper #menu {
+    left: -160px;
+    transition: all 1s;
 }
 
-label[for*="1"]:before {
-  content: "\f1cb";
-}
-label[for*="2"]:before {
-  content: "\f17d";
-}
-label[for*="3"]:before {
-  content: "\f16b";
-}
-label[for*="4"]:before {
-  content: "\f1a9";
+#menu_active:checked + #wrapper .fa-bars, #wrapper i.fa-arrow-left {
+    display: block;
 }
 
-label:hover {
-  color: #bba3c4;
-  cursor: pointer;
-  background-color: #0f5257;
+#menu_active:checked + #wrapper .fa-arrow-left, #wrapper i.fa-bars {
+    display: none;
 }
 
-input:checked + label {
-  background-color: #311c38;
-  color: #d2eaf2;
-  border: 1px solid #725e54;
-  border-top: 2px solid #725e54;
-  border-bottom: 1px solid #725e54;
+#menu i{
+    width:40px;
+    text-align:center;
 }
 
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2,
-#tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
-  display: block;
-}
-/* Small reset */
-aside,
-nav {
-  display: block;
+#site-name {
+    color: white;
+    display: block;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 50px;
+    padding-right: 0px;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+#site-name i {
+    float: right;
 }
 
-/* Clear floats */
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+#site-name label {
+    color: white;
+    font-size: 30px;
 }
 
-.clearfix {
-  *zoom: 1;
-}
-aside {
-  float: left;
-  width: 250px;
-  margin-right: 20px;
-}
-/* Vertical menu */
-#menu li {
-  margin: 0 0 3px 0;
+#menu ul {
+    padding: 0;
 }
 
-#menu a {
-  display: block;
-  *display: inline-block;
-  *width: 240px;
-  text-decoration: none;
-  background: #311c38;
-  color: #bba3c4;
-  padding: 10px 5px;
-  text-transform: uppercase;
-  font-size: 16px;
-  border-radius: 5px;
+#menu ul li {
+    color: white;
+    list-style: none;
+    padding: 10px;
+    border-left: 4px solid transparent;
+    padding-right:0px;
 }
 
-#menu a:hover {
-  color: #d2eaf2;
-  background: #0f5257;
+#menu ul li:hover {
+    color: #d32a4a;
+    border-left: 4px solid #d32a4a;
 }
 
-#menu .expandable {
-  position: relative;
-}
-
-#menu .expandable:before,
-#menu .expandable:after {
-  content: "";
-  position: absolute;
-  right: 5px;
-  margin-top: 5px;
-  border-top: 6px solid #444;
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
-}
-
-#menu .expandable:before {
-  border-top-color: #fff;
-  margin-top: 6px;
-}
-
-#menu .expanded:after {
-  border-top: 0;
-  border-bottom: 6px solid #444;
-}
-
-#menu .expanded:before {
-  border-top: 0;
-  border-bottom: 6px solid #fff;
+#menu ul li i {
+    float: right;
+    font-size: 24px;
 }
 
 #menu ul a {
-  background: #f2f2f2;
-  text-transform: none;
-  font-weight: normal;
+    text-decoration: none;
+    color: white;
+    display: block;
+    height: 100%;
+}
+:root {
+  --color-one: #34D1D1;
+  --color-two: #2F2235;
+  --color-three: #3F3244;
+  --color-four: #F2F2F2;
+  --color-five: #D1D2D3;
+  --color-six: #666666;
+  --color-seven: #000000;
+  --color-eight: #ffffff;
 }
 
-#menu ul a:hover {
-  background: #fafafa;
-  color: #444;
+html {
+  font-family: 'Open Sans', sans-serif;
 }
 
-@media screen and (max-width: 650px) {
-  label {
-    font-size: 0;
+.accordion {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+}
+
+.accordion__content {
+  order: 1;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.accordion__label {
+  display: block;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: center;
+  padding: 1% 5% 1% 5%;
+  background-color: var(--color-four);
+  margin-right: 1px;
+  border-bottom: 1px solid var(--color-five);
+}
+
+.accordion__radio {
+  display: none;
+}
+
+.accordion input[type="radio"] {
+	display: none;
+}
+
+.accordion input[type="radio"] + label {
+   color: var(--color-six);
+   z-index: 1;
+}
+
+.accordion input[type="radio"]:checked + label {
+  background-color: white;
+  font-weight: 600;
+  border-top: 1px solid var(--color-five);
+  border-left: 1px solid var(--color-five);
+  border-right: 1px solid var(--color-five);
+  border-bottom: none;
+}
+.accordion input[type="radio"]:checked + label + .accordion__content {
+	display: flex;
+  margin-right: 0;
+  border-left: 1px solid var(--color-five);
+  border-right: 1px solid var(--color-five);
+  border-bottom: 1px solid var(--color-five);
+}
+
+.accordion__content__image__container {
+  width: 40%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.accordion__content__image {
+  max-width: 100%;
+  max-height: 88%;
+  margin: 3%;
+  background-color: teal;
+}
+
+.accordion__content__text {
+  width: 75%;
+  margin-top: 1%;
+  margin-left: 40px;
+}
+
+.accordion__content__text__title {
+  margin-top: 3%;
+}
+
+.accordion__content__text__horizontal-line {
+  border: none;
+  border-bottom: 1px solid var(--color-five);
+  margin-right: 2%;
+}
+
+.accordion__content__text__body {
+  margin-top: 2%;
+  padding-right: 5%;
+}
+
+@media (max-width: 900px){
+  .accordion {
+    border: 1px solid var(--color-five);
   }
-  label:before {
+  
+  .accordion-tab--status {
+    display: inline;
+  }
+  .accordion__content,
+  .accordion__label
+  {
+    order: initial;
+  }
+  
+  .accordion__content {
+    flex-direction: column;
+  }
+  
+  .accordion__label {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    padding: 5% 6% 5% 6%;
+  }
+
+  .accordion__label:last-child {
+    background-color: magenta;
+  }
+
+  .accordion__content__image__container {
+    width: 100%;
+  }
+
+  .accordion__content__image {
+    padding: 0;
     margin: 0;
-    font-size: 18px;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
   }
-}
 
-@media screen and (max-width: 400px) {
-  label {
-    padding: 15px;
+  .accordion__content__text {
+    font-size: 0.9em;
+    margin: 4% 5% 4% 5%;
   }
-  aside {
-    width: 100px;
+
+  .accordion__content__text__title {
+    margin: 2% 0 2% 0;
   }
-  #menu a {
-    font-size: 12px;
+
+  .accordion__content__text__horizontal-line {
+    width: 100%;
   }
-  header {
-    font-size: 18px;
+
+  .accordion input[type="radio"] + label span:after  {
+    content: '+';
   }
-  .carousel-caption {
-     background: rgb(115, 115, 115);
-    position: relative;
-    display: none;
-    -webkit-transition: 0.8s ease-in-out left;
-    -moz-transition: 0.8s ease-in-out left;
-    -o-transition: 0.8s ease-in-out left;
-    transition: 0.8s ease-in-out left;
-    }
-}
+
+  .accordion input[type="radio"]:checked + label span:after  {
+    content: '—';
+  }
+
+  .accordion input[type="radio"]:checked + label {
+    border: none; 
+  }
+
+  .accordion input[type="radio"]:checked + label + .accordion {
+    border: none;  
+  }
+
+  .accordion input[type="radio"]:checked + label + .accordion__content {
+    border: none;
+  }
 </style>
-<title>Introduction to Graphic Novels</title>
 </head>
 <body>
-  <header>
-    Introduction to Graphic Novels
-  </header>
-  <aside>
-    <nav>
-      <ul id="menu">
-        <li><a href="{{site.baseurl}}/index.html">Home</a></li>
-        <li><a href="{{site.baseurl}}/about.html">About</a></li>
-        <li><a href="{{site.baseurl}}/sched.html">Schedule</a></li>
-        <li><a href="{{site.baseurl}}/readings.html">Readings</a>
-        </li>
-        <li><a href="{{site.baseurl}}/assignments.html">Assignments</a>
-        </li>
+  <input type='checkbox' id='menu_active' checked/>
+  <div id='wrapper' class='active'>
+    <div id='menu'>
+      <span id='site-name'><label for='menu_active'><i class="fa fa-arrow-left"></i><i class="fa fa-bars"></i></label></span>
+      <ul>
+        <a href='home.html'>
+          <li>Home<i class="fa fa-home"></i></li>
+        </a>
+        <a href='assignment.html'>
+          <li>Assignments<i class="fas fa-clipboard-list"></i></li>
+        </a>
+        <a href='sched.html'>
+          <li>Schedule<i class="fas fa-calendar-alt"></i></li>
+        </a>
+        <a href='readings.html'>
+        <li>Readings<i class="fas fa-book-open"></i></li>
+        </a>
+        <a href='about.html'>
+          <li>Contact<i class="fa fa-send"></i></li>
+        </a>
       </ul>
-    </nav>
-  </aside>
-  <main>
-
+    </div>
 {{content}}
-</main>
-<footer class="clearfix">
-    April Hummons copyright 2018
-  </footer>
+    </div>
+  </div>
 </body>
-
 </html>
