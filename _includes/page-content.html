@@ -1,0 +1,10 @@
+<div id='page-content'>
+    <div class="accordion">
+      {% if page.category == page.title %}
+    {% include tab.html  page.section == '1' %}
+    {% include tab.html  page.section == '2' %}
+    {% include tab.html page.section == '3' %}
+    {% include tab.html page.section == '4' %}
+    {% end if %}
+   </div>
+      </div>
